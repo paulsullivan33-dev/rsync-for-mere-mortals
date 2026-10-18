@@ -1,0 +1,122 @@
+rsync recipes — the commands from "rsync for Mere Mortals"
+============================================================
+
+Every recipe below was run while writing the guide.
+Paths are examples; the flags are the point.
+
+
+FIRST SYNCS
+-----------
+Mirror a directory's contents into a backup:
+
+    rsync -av project/ backup-project/
+
+Copy the directory itself (note: no trailing slash):
+
+    rsync -av project backup/
+
+- First Sync, Archive Mode chapters
+
+
+REHEARSE AND READ
+-----------------
+See what a run would do, changing nothing:
+
+    rsync -av --dry-run project/ backup-project/
+
+The same, with the annotated 11-character codes:
+
+    rsync -av --dry-run --itemize-changes project/ backup-project/
+
+- Dry Runs and Reading Changes chapter
+
+
+DELETING, WITH NETS
+-------------------
+Preview every deletion before allowing any:
+
+    rsync -av --delete --dry-run --itemize-changes docs/ docs-mirror/
+
+Keep a copy of everything a run replaces or deletes:
+
+    rsync -av --backup --backup-dir=../rescued docs/ docs-mirror/
+
+Stop a runaway mirror (exits with code 25 if tripped):
+
+    rsync -av --delete --max-delete=50 docs/ docs-mirror/
+
+- Deleting, Carefully chapter
+
+
+FILTERING
+---------
+Skip every directory named cache, at any depth:
+
+    rsync -a --exclude='cache' site/ site-copy/
+
+Skip only the top-level cache (the slash anchors it):
+
+    rsync -a --exclude='/cache' site/ site-copy/
+
+Rules from a file (see exclude-patterns.txt):
+
+    rsync -a --exclude-from=exclude-patterns.txt site/ site-copy/
+
+Transfer exactly the listed files, nothing else:
+
+    rsync -a --files-from=list.txt site/ site-copy/
+
+- Including and Excluding chapter
+
+
+DECISIONS
+---------
+Audit a tree by content, not timestamps (expensive):
+
+    rsync -av --checksum project/ backup-project/
+
+Don't overwrite anything newer at the destination:
+
+    rsync -av --update src/ dst/
+
+Fill in only what's missing at the destination:
+
+    rsync -av --ignore-existing src/ dst/
+
+Resume an interrupted big transfer:
+
+    rsync -av --partial big-file.iso dst/
+
+- How rsync Decides What to Send chapter
+
+
+NETWORK
+-------
+Push and pull over ssh (port/key are ssh's business):
+
+    rsync -av -e 'ssh -p 2222 -i ~/.ssh/key' project/ user@host:/srv/project/
+    rsync -av user@host:/srv/project/ project/
+
+List a daemon's modules, then pull from one:
+
+    rsync rsync://host:8873/
+    rsync -av rsync://host:8873/demo/ pulled/
+
+Compress text-like data; limit bandwidth to 8000 KB/s:
+
+    rsync -avz --bwlimit=8000 host:/srv/logs/ logs/
+
+- rsync Over the Network chapter
+
+
+SNAPSHOTS
+---------
+One snapshot by hand:
+
+    rsync -a --link-dest=/backups/latest project/ /backups/2026-10-17_235959/
+
+Or use snapshot.sh from this directory:
+
+    ./snapshot.sh project /backups
+
+- rsync as a Backup Engine chapter

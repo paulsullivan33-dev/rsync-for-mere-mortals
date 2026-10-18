@@ -1,0 +1,11 @@
+# Exclude patterns for --exclude-from, one per line.
+# Used with the tree in the Including and Excluding chapter:
+#
+#     rsync -a --exclude-from=exclude-patterns.txt site/ site-copy/
+#
+# A pattern with no slash matches the name at any depth.
+# A trailing slash restricts the match to directories.
+
+*.tmp
+.git/
+logs/

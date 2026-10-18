@@ -1,0 +1,24 @@
+site_name: rsync for Mere Mortals
+site_description: Plain-language rsync. First syncs, the trailing slash, dry runs, safe deleting, excludes, snapshots that cost almost nothing, and moving files over ssh and the rsync daemon, all run for real.
+site_url: https://paulsullivan33-dev.github.io/rsync-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What rsync Is: what-rsync-is.md
+  - Your First Sync: your-first-sync.md
+  - Archive Mode and Friends: archive-mode.md
+  - Dry Runs and Reading Changes: dry-runs-and-itemize.md
+  - Deleting, Carefully: deleting-carefully.md
+  - Including and Excluding: including-and-excluding.md
+  - How rsync Decides What to Send: what-gets-sent.md
+  - rsync Over the Network: over-the-network.md
+  - A Worked Example: worked-example.md
+  - rsync as a Backup Engine: backup-engine.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md
