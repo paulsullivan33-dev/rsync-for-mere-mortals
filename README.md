@@ -84,3 +84,19 @@ and you have the everyday tool. The middle chapters
 are reference for the day a sync does something you
 didn't expect — which, with rsync, is a day that
 comes for everyone.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [Backups for Mere Mortals](https://paulsullivan33-dev.github.io/backups-for-mere-mortals/)
+- [rclone for Mere Mortals](https://paulsullivan33-dev.github.io/rclone-for-mere-mortals/)
+- [SSH for Mere Mortals](https://paulsullivan33-dev.github.io/ssh-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/rsync-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/rsync-for-mere-mortals/blob/main/LICENSE-CODE).

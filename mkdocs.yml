@@ -1,6 +1,7 @@
 site_name: rsync for Mere Mortals
 site_description: Plain-language rsync. First syncs, the trailing slash, dry runs, safe deleting, excludes, snapshots that cost almost nothing, and moving files over ssh and the rsync daemon, all run for real.
 site_url: https://paulsullivan33-dev.github.io/rsync-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
 
 # Guides live at the repo root (nice for GitHub browsing).
 # The deploy workflow copies them into docs/ before building.
